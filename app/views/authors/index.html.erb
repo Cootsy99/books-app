@@ -1,0 +1,31 @@
+<h1>All Authors</h1>
+
+<%= link_to "Create New Author", new_author_path %>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Number of Books</th>
+        <th>Born</th>
+        <th>Actions</th>
+    </tr>
+
+    <% @authors.each do |author| %>
+        <tr>
+        <td><%= link_to("#{author.first_name} #{author.last_name}", author_path(author)) %></td>
+        <td><%= author.number_of_books%></td>
+        <td><%= "#{author.author_birthdate.strftime("%m/%d/%Y")}" %></td>
+        <td>
+            <%= link_to "Edit Author", edit_author_path(author) %>
+            &nbsp;|&nbsp;
+            <%= link_to "Delete Author", author_path(author),
+                data: {
+                    turbo_method: :delete, 
+                    turbo_confirm: "Are you sure you want to delete #{author.first_name} #{author.last_name}?"} %>
+        </td>
+            
+        
+
+        </tr>
+    <% end %>
+</table>

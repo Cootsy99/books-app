@@ -1,0 +1,19 @@
+<h1>New Book for <%= "#{@author.first_name} #{@author.last_name}"%></h1>
+
+<%= form_for [@author, @book] do |f| %>
+<div class="field">
+        <%= f.label :name, "Name of Book" %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+        <%= f.label :pages, "Number of Pages" %>
+        <%= f.number_field :pages %>
+    </div>
+
+    <div class="field">
+        <%= f.label :genre, "Genre" %>
+        <%= f.text_field :genre %>
+    </div>
+    <%= f.submit "Submit" %>
+    <% end %>

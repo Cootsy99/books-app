@@ -1,0 +1,21 @@
+<h1><%= "#{@author.first_name} #{@author.last_name}"  %></h1>
+<%= link_to("All Authors", authors_path) %>
+<%= link_to("Add New Book", new_author_book_path(@author)) %>
+
+<br>
+<br>
+<h2>Books:</h2>
+<ul>
+<% @books.each do |book| %>
+    <li class="row">
+    <strong><%= link_to(book.name, author_book_path(@author, book)) %> </strong>
+    |
+    <em><%= book.genre %> </em>
+    |
+    <em><%= "#{book.pages} pages" %> </em>
+    
+   
+    </li> 
+<% end %>
+<ul>
+
